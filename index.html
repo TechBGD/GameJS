@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <link rel="stylesheet" href="./index.css">
+<body>
+    <div class="container">
+        <div class="introduction"> <!-- Game Menu-->
+            <h1>KING <br> <span>SLAYER</span></h1>
+            <h2 onclick="Start(); increment()" id="startGame-el">Start Game</h2>
+            <h1 id="enter-el"></h1>
+        </div>                     <!-- Game Menu-->
+
+        <div class="KingAppereance"> <!-- Game Introduction-->
+            <section class="king-character">
+                <img src="./images/king.png" alt="">
+                <p>My Queen Was Stolen By The Enigma Clan </p>
+            </section>                 
+            <h2 onclick="Start(); increment()" id="startGame-el">Continue</h2>
+        </div>                       <!-- Game Introduction-->
+
+        <div class="KingDuel">      <!-- Game Duel-->
+            <section class="king-character">
+                <img src="./images/king.png" alt="">
+                <p>I will fight for her</p>
+            </section>
+            <section class="enemy-character">
+                <img src="./images/enemy.png" alt="">
+                <p>Atleast you can try</p>
+            </section>
+            <h2 onclick="Start(); increment()" id="startGame-el">Continue</h2>
+        </div>                      <!-- Game Duel-->
+
+        <div class="KingAndQueen">  <!-- Game End-->
+            <h2 onclick="Start(); increment()" id="startGame-el">Continue</h2>
+            <section class="KingAndQueen2">
+                <img src="./images/king.png" alt="">
+                <img src="./images/queen.png" alt="">
+            </section>
+            <h1>VICTORYYY</h1>
+        </div>                      <!-- Game End-->
+    </div>  
+</body>
+<script>
+    let startGame = document.getElementById("startGame-el")
+    let allElements = document.querySelector('.introduction')
+    let allElements2 = document.querySelector(".KingAppereance")
+    let allElements3 = document.querySelector(".KingDuel")
+    let allElements4 = document.querySelector(".KingAndQueen")
+    let elem = document.querySelectorAll("body")
+    let count = 0;
+    let lastPart = 3;
+
+function increment() {
+    count = count + 1 
+    console.log(count)
+}
+
+    function Start() {
+        if (count === 0) {
+            allElements.style.display = "block"
+            allElements2.style.display = "none"
+    } else if (count === 1) {
+            allElements.style.display = "none"
+            allElements2.style.display = "block"
+    } else if (count === 2) {
+        allElements3.style.display = "block";
+        allElements2.style.display = "none"
+    } else if (lastPart === 3) {
+        allElements4.style.display = "block";
+        allElements3.style.display = "none"
+    }
+}
+
+    document.getElementById("startGame-el").addEventListener("click", ()=> {
+        document.documentElement.requestFullscreen().catch((e) => {
+        console.log(e)
+    });
+    });
+ 
+</script>
+</html>
